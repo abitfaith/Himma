@@ -78,7 +78,7 @@ func (d *BridgeNetworkDriver) initBridge(n *Network) error {
 	// try to get bridge by name, if it already exists then just exit
 	bridgeName := n.Name
 	if err := createBridgeInterface(bridgeName); err != nil {
-		return fmt.Errorf("Error add bridgeï¼%s, Error: %v", bridgeName, err)
+		return fmt.Errorf("Error add bridge: %s, Error: %v", bridgeName, err)
 	}
 
 	// Set bridge IP
