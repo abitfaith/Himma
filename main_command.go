@@ -12,7 +12,7 @@ import (
 
 var runCommand = cli.Command{
 	Name:  "run",
-	Usage: `Create a container with namespace and cgroups limit ie: mydocker run -ti [image] [command]`,
+	Usage: `Create a container with namespace and cgroups limit ie: himma run -ti [image] [command]`,
 	Flags: []cli.Flag{
 		cli.BoolFlag{
 			Name:  "ti",

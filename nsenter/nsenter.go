@@ -11,20 +11,20 @@ package nsenter
 #include <fcntl.h>
 
 __attribute__((constructor)) void enter_namespace(void) {
-	char *mydocker_pid;
-	mydocker_pid = getenv("mydocker_pid");
-	if (mydocker_pid) {
-		//fprintf(stdout, "got mydocker_pid=%s\n", mydocker_pid);
+	char *himma_pid;
+	himma_pid = getenv("himma_pid");
+	if (himma_pid) {
+		//fprintf(stdout, "got himma_pid=%s\n", himma_pid);
 	} else {
-		//fprintf(stdout, "missing mydocker_pid env skip nsenter");
+		//fprintf(stdout, "missing himma_pid env skip nsenter");
 		return;
 	}
-	char *mydocker_cmd;
-	mydocker_cmd = getenv("mydocker_cmd");
-	if (mydocker_cmd) {
-		//fprintf(stdout, "got mydocker_cmd=%s\n", mydocker_cmd);
+	char *himma_cmd;
+	himma_cmd = getenv("himma_cmd");
+	if (himma_cmd) {
+		//fprintf(stdout, "got himma_cmd=%s\n", himma_cmd);
 	} else {
-		//fprintf(stdout, "missing mydocker_cmd env skip nsenter");
+		//fprintf(stdout, "missing himma_cmd env skip nsenter");
 		return;
 	}
 	int i;
@@ -32,7 +32,7 @@ __attribute__((constructor)) void enter_namespace(void) {
 	char *namespaces[] = { "ipc", "uts", "net", "pid", "mnt" };
 
 	for (i=0; i<5; i++) {
-		sprintf(nspath, "/proc/%s/ns/%s", mydocker_pid, namespaces[i]);
+		sprintf(nspath, "/proc/%s/ns/%s", himma_pid, namespaces[i]);
 		int fd = open(nspath, O_RDONLY);
 
 		if (setns(fd, 0) == -1) {
@@ -42,7 +42,7 @@ __attribute__((constructor)) void enter_namespace(void) {
 		}
 		close(fd);
 	}
-	int res = system(mydocker_cmd);
+	int res = system(himma_cmd);
 	exit(0);
 	return;
 }

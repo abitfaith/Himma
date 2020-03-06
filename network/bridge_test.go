@@ -47,7 +47,7 @@ func TestLoad(t *testing.T) {
 		Name: "testbridge",
 	}
 
-	n.load("/var/run/mydocker/network/network/testbridge")
+	n.load("/var/run/himma/network/network/testbridge")
 
 	t.Logf("network: %v", n)
 }

@@ -9,7 +9,7 @@ import (
 	log "github.com/Sirupsen/logrus"
 )
 
-const ipamDefaultAllocatorPath = "/var/run/mydocker/network/ipam/subnet.json"
+const ipamDefaultAllocatorPath = "/var/run/himma/network/ipam/subnet.json"
 
 type IPAM struct {
 	SubnetAllocatorPath string

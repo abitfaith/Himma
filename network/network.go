@@ -19,7 +19,7 @@ import (
 )
 
 var (
-	defaultNetworkPath = "/var/run/mydocker/network/network/"
+	defaultNetworkPath = "/var/run/himma/network/network/"
 	drivers = map[string]NetworkDriver{}
 	networks = map[string]*Network{}
 )

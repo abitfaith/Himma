@@ -12,8 +12,8 @@ import (
 	_ "./nsenter"
 )
 
-const ENV_EXEC_PID = "mydocker_pid"
-const ENV_EXEC_CMD = "mydocker_cmd"
+const ENV_EXEC_PID = "himma_pid"
+const ENV_EXEC_CMD = "himma_cmd"
 
 func ExecContainer(containerName string, comArray []string) {
 	pid, err := GetContainerPidByName(containerName)
