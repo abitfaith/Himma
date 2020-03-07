@@ -27,8 +27,8 @@ func NewWorkSpace(volume, imageName, containerName string) {
 
 //Decompression tar image
 func CreateReadOnlyLayer(imageName string) error {
-	unTarFolderUrl := RootUrl + "/" + imageName + "/"
-	imageUrl := RootUrl + "/" + imageName + ".tar"
+	unTarFolderUrl := ImageUrl + "/" + imageName + "/"
+	imageUrl := ImageUrl + "/" + imageName + ".tar"
 	exist, err := PathExists(unTarFolderUrl)
 	if err != nil {
 		log.Infof("Fail to judge whether dir %s exists. %v", unTarFolderUrl, err)
@@ -82,7 +82,7 @@ func CreateMountPoint(containerName , imageName string) error {
 		return err
 	}
 	tmpWriteLayer := fmt.Sprintf(WriteLayerUrl, containerName)
-	tmpImageLocation := RootUrl + "/" + imageName
+	tmpImageLocation := ImageUrl + "/" + imageName
 	mntURL := fmt.Sprintf(MntUrl, containerName)
 	dirs := "dirs=" + tmpWriteLayer + ":" + tmpImageLocation
 	_, err := exec.Command("mount", "-t", "aufs", "-o", dirs, "none", mntURL).CombinedOutput()

@@ -12,12 +12,12 @@ var (
 	RUNNING             string = "running"
 	STOP                string = "stopped"
 	Exit                string = "exited"
-	DefaultInfoLocation string = "/var/run/himma/%s/"
+	DefaultInfoLocation string = "./info/%s/"
 	ConfigName          string = "config.json"
 	ContainerLogFile    string = "container.log"
-	RootUrl				string = "/root"
-	MntUrl				string = "/root/mnt/%s"
-	WriteLayerUrl 		string = "/root/writeLayer/%s"
+	ImageUrl				string = "./images"
+	MntUrl				string = "./root/mnt/%s"
+	WriteLayerUrl 		string = "./root/writeLayer/%s"
 )
 
 type ContainerInfo struct {
