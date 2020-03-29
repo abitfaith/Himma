@@ -12,12 +12,12 @@ var (
 	RUNNING             string = "running"
 	STOP                string = "stopped"
 	Exit                string = "exited"
-	DefaultInfoLocation string = "./info/%s/"
+	DefaultInfoLocation string = "/root/info/%s/"
 	ConfigName          string = "config.json"
 	ContainerLogFile    string = "container.log"
-	ImageUrl				string = "./images"
-	MntUrl				string = "./root/mnt/%s"
-	WriteLayerUrl 		string = "./root/writeLayer/%s"
+	ImageUrl				string = "/root/images"
+	MntUrl				string = "/root/mnt/%s"
+	WriteLayerUrl 		string = "/root/writeLayer/%s"
 )
 
 type ContainerInfo struct {
